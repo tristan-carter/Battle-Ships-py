@@ -104,7 +104,7 @@ class Board:
     self.board = [[BoardCell(Coord(x, y)) for x in range(BOARDSIZE)] for y in range(BOARDSIZE)]
 
     self.userShips = self.initiate_ships()
-    print("\n \n \n \n \n \n \n \n \n \n")
+    print("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n")
 
   def initiate_ships_input(self, shipType, lives):
     while True:
@@ -185,7 +185,7 @@ class Board:
           total_lives += ship.lives
 
     if total_lives == 0:
-      print("\n \n \n \n \n")
+      print("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n")
       print("GAME OVER")
       print(self.enemyUserName + " has won!")
       
@@ -216,7 +216,7 @@ class Board:
       print("MISS")
     
   def enemy_play_turn(self):
-    print("\n \n \n \n")
+    print("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n")
     print("Enemy Board:")
     for y in range(BOARDSIZE-1, -1, -1):
       row = ""
@@ -262,24 +262,30 @@ class Board:
           row += boardCell.ship
       print(row)
     return ""
-           
-user1Name = input("User1 please enter your username ")
-user2Name = input("User2 please enter your username ")
 
-user1Board = Board(user1Name, user2Name)
-user2Board = Board(user2Name, user1Name)
-
-user1Board.enemyBoard = user2Board
-user2Board.enemyBoard = user1Board
-
-gamePlaying = True
-while gamePlaying:
-  print("Hand over to " + user2Name)
-  time.sleep(3)
-  gamePlaying = user1Board.enemy_play_turn()
-  if not gamePlaying:
-    break
+def main():
+  user1Name = input("User1 please enter your username ")
+  user2Name = input("User2 please enter your username ")
   
-  print("Hand over to " + user1Name)
-  time.sleep(3)
-  gamePlaying = user2Board.enemy_play_turn()
+  user1Board = Board(user1Name, user2Name)
+  user2Board = Board(user2Name, user1Name)
+  
+  user1Board.enemyBoard = user2Board
+  user2Board.enemyBoard = user1Board
+  
+  gamePlaying = True
+  while gamePlaying:
+    print("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n")
+    print("Hand over to " + user2Name)
+    time.sleep(3)
+    gamePlaying = user1Board.enemy_play_turn()
+    print("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n")
+    if not gamePlaying:
+      break
+    
+    print("Hand over to " + user1Name)
+    time.sleep(3)
+    gamePlaying = user2Board.enemy_play_turn()
+
+if __name__ == "__main__":
+    main()
