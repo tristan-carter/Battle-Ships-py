@@ -1,1 +1,1 @@
-Battleships game I developed back in 2022 for a bit of fun.
+Battleships game I developed for a bit of fun. Developed in 2022.
